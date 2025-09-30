@@ -2,36 +2,36 @@
 
 // Invänta DOM
 document.addEventListener("DOMContentLoaded", () => {
-    // Lägg händelsehanterare på knappen
-    document.querySelector("#my-button").addEventListener("click", () => {
-        console.log("Du klickade på knappen!");
-    });
 
-    document.querySelector("#my-button").addEventListener("mouseover", () => {
-        console.log("Du förde muspekaren över knappen!");
-    });
+    // Händelsehanterare för att lägga till hund
+    document.querySelector("#add-dog").addEventListener("click", addDog);
 
 });
 
 
+function addDog() {
 
+    // Läs in värdet från formuläret
+    const dogName = document.querySelector("#dog-name").value;
 
+    // Kontrollera att namnet inte är tomt
+    if (dogName === "") return;
 
-function printDog(dogName) {
     const dogsEl = document.querySelector("#dogs");
 
-    dogsEl.innerHTML += "<li>" + dogName + "</li>";
+    // Skapa en ny hund
+    const newDogEl = document.createElement("li");    // <li></li>
+    // Skapa ett namn på hunden
+    const newDogName = document.createTextNode(dogName);    // "dogName"
 
-    // // Skapa en ny hund
-    // const newDogEl = document.createElement("li");    // <li></li>
-    // // Skapa ett namn på hunden
-    // const newDogName = document.createTextNode(dogName);    // "Yatzy"
+    // Slå ihop till samma
+    newDogEl.appendChild(newDogName); // <li>dogName</li>
 
-    // // Slå ihop till samma
-    // newDogEl.appendChild(newDogName); // <li>Yatzy</li>
+    // Skriv ut till DOM
+    dogsEl.appendChild(newDogEl);
 
-    // // Skriv ut till DOM
-    // dogsEl.appendChild(newDogEl);
+    // Rensa värdet från formuläet
+    document.querySelector("#dog-name").value = "";
 }
 
 

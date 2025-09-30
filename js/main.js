@@ -11,8 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function addDog() {
 
-    // Läs in värdet från formuläret
+    // Läs in namn från formuläret
     const dogName = document.querySelector("#dog-name").value;
+
+    // Läs in ras från formuläret
+    const dogBreed = document.querySelector("#dog-breed").value;
 
     // Kontrollera att namnet inte är tomt
     if (dogName === "") return;
@@ -22,7 +25,7 @@ function addDog() {
     // Skapa en ny hund
     const newDogEl = document.createElement("li");    // <li></li>
     // Skapa ett namn på hunden
-    const newDogName = document.createTextNode(dogName);    // "dogName"
+    const newDogName = document.createTextNode(dogName + " (" + dogBreed + ")");    // "dogName (breed)"
 
     // Slå ihop till samma
     newDogEl.appendChild(newDogName); // <li>dogName</li>
